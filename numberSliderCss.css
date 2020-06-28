@@ -1,0 +1,79 @@
+h1,h2{
+    font-weight: normal;
+    color: #db142eee;
+    font-family: Arial;
+}
+div {
+    margin: 0px auto;
+    width: 400px;
+}
+
+
+ label {
+    color : brown;
+    font-family: Arial;
+    font-weight:bold;
+    font-size: 20;
+} 
+.checkbox-tool input[type='checkbox']:after {
+    position: relative; 
+    width: 10px;
+    height: 10px;
+   /* border-radius: 15px;*/
+    background-color:wheat; /* #d1d3d1;*/
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+/*
+.checkbox-tool label  {
+    display: inline-block;
+    background-color: whitesmoke;
+    padding: 4px 11px;
+    font-family: Arial;
+    font-size: 16px;
+    color:lightcoral;
+    cursor: pointer;
+}
+*/
+.checkbox-tool input[type='checkbox']:checked:after {
+    background-color: orangered;
+ /*   content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;*/
+} 
+button {
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(163,9,9);
+    background-color:rgb(243, 231, 161); /* #4CAF50; */
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;
+  }
+ 
+  button:hover {background-color:#ece91933} /* #3e8e41 */
+  
+  .radio-toolbar input[type="radio"] {
+    display: none;
+  }
+  .radio-toolbar label {
+    display: inline-block;
+    background-color: whitesmoke;
+    padding: 4px 11px;
+    font-family: Arial;
+    font-size: 16px;
+    color:lightcoral;
+    cursor: pointer;
+  }
+  
+  .radio-toolbar input[type="radio"]:checked+label{
+    background-color: burlywood;
+  }

@@ -1,0 +1,44 @@
+<!Doctype html>
+<html>
+<head>
+  <title>Number Puzzle Game. </title>
+  <!--  date: 27 June 2020 --->
+  <!-- Programmed by: Wach R. (wachr0@gmail.com) -->
+  <meta charset= "UTF-8" />
+  <link rel="stylesheet" href="numberSliderCss_x.css" type="text/css"> 
+ 
+</head>
+<body>
+  
+<div>
+  <h1> Number Puzzle Game</h1><br/>
+ 
+<canvas id='canvas' width="310" height="310" style="border:1px solid #ff0505;"></canvas>
+
+<br/><br/>
+<table>
+  <tr>
+    <td width=85></td><td width=85></td><td><button id='newGame'>New Game</button> </td>
+  </tr>
+</table>
+<label for='boardSize' id='boardSizeHeader'>Board Size:</label>
+<div class="radio-toolbar">
+  <input type="radio" id="radio1" name="boardSize" value="3" checked>
+  <label for="radio1">Size 3x3</label>
+
+  <input type="radio" id="radio2" name="boardSize" value="4">
+  <label for="radio2">Size 4x4</label>
+
+  <input type="radio" id="radio3" name="boardSize" value="5">
+  <label for="radio3">Size 5x5</label>
+</div>
+<br/>
+<span class='checkbox-tool'>
+  <input type="checkbox" id="chkRandom">
+  <label id='lblChk'for='chkRandom'>Shuffling tiles when game start.</label>  
+ </span>
+ 
+</div>
+</body>
+<script src="sliderBoard_x.js"></script> 
+</html>

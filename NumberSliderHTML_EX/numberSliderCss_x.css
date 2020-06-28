@@ -1,0 +1,78 @@
+/* NumberSliderCss_x.css 
+*  extend edition for numberSlider_x.js
+* date : 27 June 2020
+* by: Wach R.
+*/
+h1,h2{
+    font-weight: bold;
+    color: lightseagreen;
+    font-family: Arial;
+}
+div {
+    margin: 0px auto;
+    width: 400px;
+}
+label {
+    color : darkgreen;
+    font-family: Arial;
+    font-weight:bold;
+    font-size: 20;
+} 
+.checkbox-tool input[type='checkbox']:after {
+    position: relative; 
+    width: 10px;
+    height: 10px;
+   /* border-radius: 15px;*/
+    background-color:lightgrey; 
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+/*
+.checkbox-tool label  {
+    display: inline-block;
+    background-color: whitesmoke;
+    padding: 4px 11px;
+    font-family: Arial;
+    font-size: 16px;
+    color:lightcoral;
+    cursor: pointer;
+}
+*/
+.checkbox-tool input[type='checkbox']:checked:after {
+    background-color: orangered;
+ } 
+button {
+    display: inline-block;
+    font-size: 14px;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: black;
+    background-color:lightgreen; 
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px darkslategrey;
+  }
+ 
+  button:hover {background-color:lightgoldenrodyellow} 
+  
+  .radio-toolbar input[type="radio"] {
+    display: none;
+  }
+  .radio-toolbar label {
+    display: inline-block;
+    background-color: whitesmoke;
+    padding: 4px 11px;
+    font-family: Arial;
+    font-size: 16px;
+    color:green;
+    cursor: pointer;
+  }
+  
+  .radio-toolbar input[type="radio"]:checked+label{
+    background-color: lightgreen;
+  }
