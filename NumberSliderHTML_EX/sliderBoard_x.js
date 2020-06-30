@@ -144,22 +144,6 @@ function drawTiles(point, number) {
         }
     }
  
-/**
- * Draws a rounded rectangle using the current state of the canvas.
- * If you omit the last three params, it will draw a rectangle
- * outline with a 5 pixel border radius
- * @param {CanvasRenderingContext2D} ctx
- * @param {Number} x The top left x coordinate
- * @param {Number} y The top left y coordinate
- * @param {Number} width The width of the rectangle
- * @param {Number} height The height of the rectangle
- * @param {Number} [radius = 5] The corner radius;
- * @param {Boolean} [isFilled = false] Whether to fill the rectangle.
- * @param {Boolean} [isStroked = true] Whether to stroke the rectangle.
- */
-/*
-from: https://stackoverflow.com/questions/1255512/how-to-draw-a-rounded-rectangle-on-html-canvas
-*/
 function roundRect(ctx, x, y, width, height, radius, isFilled, isStroked) {
     if (typeof isStroked === 'undefined') {
         isStroked = true;
