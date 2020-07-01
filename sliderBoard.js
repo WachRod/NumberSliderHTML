@@ -8,6 +8,7 @@ var numberOfTilesPerColumn = 3;
 var Shuffling_Tile = false;
 var Game_Completed = true;
 var Vertical_Direction=false;
+var Sound_Played=true;
 
 
 var numberOfTiles;
@@ -25,9 +26,17 @@ var board = document.getElementById("canvas");
 var ctx = board.getContext("2d");
 var btnNewGame = document.getElementById('newGame');
 var chkRandom = document.getElementById('chkRandom');
+var chkSound = document.getElementById('chkSound');
 var label = document.getElementById('boardSizeHeader');
+
+var clappingSound;
+var slidingSound;
+
 window.onload = function() {
    createTiles();
+slidingSound = new Audio("ballHit.mp3");
+clappingSound = new Audio("clapping2.mp3");
+
 // Create gradient
 var gradient = ctx.createLinearGradient(0, 0, board.width, 0);
 gradient.addColorStop("0", "yellow");
@@ -52,6 +61,12 @@ chkRandom.addEventListener('change',function(event) {
          Shuffling_Tile=true;
     } else Shuffling_Tile=false;    
    if (!Game_Completed) newGame();
+} );
+chkSound.addEventListener('change',function(event) {
+    if (event.target.checked){
+         Sound_Played=true;
+    } else Sound_Played=false;    
+  
 } );
 //if (document.querySelector('input[name="boardSize"]')) {
     document.querySelectorAll('input[name="boardSize"]').forEach(function(element){
@@ -82,6 +97,7 @@ function play(){
        if (isValidClicked(indexOfClickedTile,indexOfEmptyTile ,coordinates)|| Super_Player){
             currentPattern[indexOfEmptyTile] = currentPattern[indexOfClickedTile];
             currentPattern[indexOfClickedTile] = 0;
+            if (Sound_Played) slidingSound.play();
             drawTiles();
             if (isGameOver())  {
 				Game_Completed = true;
@@ -94,6 +110,7 @@ function play(){
                 }   else  ctx.font= "bold 40px Tahoma";
                 ctx.fillStyle= "blue";
                 ctx.fillText("Game Over",x,y);
+                if(Sound_Played) clappingSound.play();
 			}
 				
 			
