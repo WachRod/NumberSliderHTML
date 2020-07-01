@@ -93,13 +93,6 @@ function play(){
         
     } 
 }
-function createTiles() {
- 
-     for (let i = 0; i < MAXIMUM_NUMBER_OF_IMAGE; i++) {
-        tileImages[i]= new Image();
-        tileImages[i].src= './img/'+String(i)+'.gif';
-      }
- } 
 function computeCoordinate() {
     let point=[];
     let count = 0;
@@ -112,11 +105,6 @@ function computeCoordinate() {
      return point;
 }
 
-// function drawTiles() {
-//     for (let i =0; i < numberOfTiles; i++) {
-//         ctx.drawImage(tileImages[currentPattern[i]], coordinates[i].x, coordinates[i].y);
-//     }
-// }
 function drawTiles(point, number) {
     var dx,dy;
     
