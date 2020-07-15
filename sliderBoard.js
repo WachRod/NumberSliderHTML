@@ -32,26 +32,29 @@ var label = document.getElementById('boardSizeHeader');
 var clappingSound;
 var slidingSound;
 
-window.onload = function() {
-   createTiles();
+
+createTiles();
 slidingSound = new Audio("ballHit.mp3");
 clappingSound = new Audio("clapping2.mp3");
 
 // Create gradient
+board.width=310;
+board.height=310;
 var gradient = ctx.createLinearGradient(0, 0, board.width, 0);
-gradient.addColorStop("0", "yellow");
-gradient.addColorStop("0.5", "brown");
-gradient.addColorStop("1.0", "red");
+gradient.addColorStop("0", "brown");
+gradient.addColorStop("0.5", "orange");
+gradient.addColorStop("1.0", "darkred");
 // Fill with gradient
-ctx.font= "30px Tahoma";
-ctx.strokeStyle = gradient;
-ctx.strokeText("Number Slider...",45,70);
-ctx.font= "18px Tahoma";
+ctx.font= "bolder 32px Tahoma";
+//ctx.strokeStyle = gradient;
+ctx.fillStyle=gradient;
+//ctx.strokeText("Number Slider...",45,70);
+ctx.fillText("Number Slider...",30,70);
+ctx.font= "bolder 18px Tahoma";
 ctx.fillStyle= "blue";
 ctx.fillText("Click 'New Game'",85,200);
 ctx.fillText("to start playing.", 85,240);
-};
-//newGame();
+
 btnNewGame.addEventListener('click',newGame);
 label.addEventListener('click', function() {
     Super_Player = !Super_Player;
@@ -108,6 +111,7 @@ function play(){
                     ctx.font="bold 30px Tahoma";
                     x=10;
                 }   else  ctx.font= "bold 40px Tahoma";
+                ctx.clearRect(0,y-35,numberOfTilesPerRow*60,50);
                 ctx.fillStyle= "blue";
                 ctx.fillText("Game Over",x,y);
                 if(Sound_Played) clappingSound.play();
