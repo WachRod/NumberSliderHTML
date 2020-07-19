@@ -34,8 +34,8 @@ var slidingSound;
 
 
 createTiles();
-slidingSound = new Audio("ballHit.mp3");
-clappingSound = new Audio("clapping2.mp3");
+slidingSound = new Audio("./snd/hit.mp3");
+clappingSound = new Audio("./snd/clapping2.mp3");
 
 // Create gradient
 board.width=310;
@@ -71,7 +71,7 @@ chkSound.addEventListener('change',function(event) {
     } else Sound_Played=false;    
   
 } );
-//if (document.querySelector('input[name="boardSize"]')) {
+
     document.querySelectorAll('input[name="boardSize"]').forEach(function(element){
       element.addEventListener("change", function(event) {
         numberOfTilesPerRow = event.target.value;
@@ -80,15 +80,7 @@ chkSound.addEventListener('change',function(event) {
       });
     });
     
- // }
-// document.addEventListener('input',function(event) {
-
-//     if(event.target.getAttribute('name')=="boardSize") {
-//     numberOfTilesPerRow = event.target.value;
-//     numberOfTilesPerColumn = numberOfTilesPerRow;
-//     newGame();
-//     }
-// } );
+ 
 board.addEventListener('click',function() {
     if (!Game_Completed) play();else alert("Clik 'New Game' for start playing");
 });   
