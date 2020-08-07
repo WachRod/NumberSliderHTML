@@ -10,7 +10,7 @@ var numberOfTilesPerRow = 3;
 var numberOfTilesPerColumn = 3;
 var Shuffling_Tile = false;
 var Game_Completed = true;
-
+var Sound_Played=true;
 var Vertical_Direction=false;
 var numberOfTiles;
 var currentPattern = [];
@@ -22,13 +22,17 @@ class Point {
         this.y = y;
     }
 }
+
+var clappingSound;
+var slidingSound;
+
 var board = document.getElementById("canvas");
 var ctx = board.getContext("2d");
 var btnNewGame = document.getElementById('newGame');
 var chkRandom = document.getElementById('chkRandom');
 var label = document.getElementById('boardSizeHeader');
-window.onload = function() {
- 
+slidingSound = new Audio("hit.mp3");
+clappingSound = new Audio("clapping2.mp3");
 // Create gradient
 var gradient = ctx.createLinearGradient(0, 0, board.width, 0);
 gradient.addColorStop("0", "yellow");
@@ -42,8 +46,6 @@ ctx.font= "18px Tahoma";
 ctx.fillStyle= "blue";
 ctx.fillText("Click 'New Game'",85,200);
 ctx.fillText("to start playing.", 85,240);
-};
-//newGame();
 btnNewGame.addEventListener('click',newGame);
 label.addEventListener('click', function() {
     Super_Player = !Super_Player;
@@ -53,6 +55,12 @@ chkRandom.addEventListener('change',function(event) {
          Shuffling_Tile=true;
     } else Shuffling_Tile=false;    
     if(!Game_Completed) newGame();
+} );
+chkSound.addEventListener('change',function(event) {
+    if (event.target.checked){
+         Sound_Played=true;
+    } else Sound_Played=false;    
+  
 } );
 //if (document.querySelector('input[name="boardSize"]')) {
     document.querySelectorAll('input[name="boardSize"]').forEach(function(element){
@@ -75,6 +83,7 @@ function play(){
        if (isValidClicked(indexOfClickedTile,indexOfEmptyTile ,coordinates)|| Super_Player){
             currentPattern[indexOfEmptyTile] = currentPattern[indexOfClickedTile];
             currentPattern[indexOfClickedTile] = 0;
+            if (Sound_Played) slidingSound.play();
             drawTiles(coordinates,currentPattern);
             if (isGameOver()) {
                Game_Completed = true;
@@ -87,10 +96,9 @@ function play(){
                 }   else  ctx.font= "bold 40px Tahoma";
                 ctx.fillStyle= "white";
                 ctx.fillText("Game Over",x,y); 
+                if(Sound_Played) clappingSound.play();
             } 
-
         }
-        
     } 
 }
 function computeCoordinate() {
@@ -107,7 +115,6 @@ function computeCoordinate() {
 
 function drawTiles(point, number) {
     var dx,dy;
-    
                 ctx.font="bold 30px TimesRoman";
                 ctx.clearRect(0,0, numberOfTilesPerRow*TILE_WIDTH, numberOfTilesPerRow*TILE_WIDTH);
     
@@ -162,9 +169,7 @@ function roundRect(ctx, x, y, width, height, radius, isFilled, isStroked) {
  
   }
 function newGame(){
-    Game_Begin=true;
-    Game_Completed = false;
-   // movingCount = 0;
+   Game_Completed = false;
    numberOfTiles = numberOfTilesPerRow*numberOfTilesPerColumn;
    board.width = numberOfTilesPerColumn*TILE_WIDTH;
    board.height = numberOfTilesPerRow*TILE_WIDTH;
@@ -237,7 +242,6 @@ function getClickedPoint(canvas, evt) {
 function getIndexOfClickedTile( point, numberOfElements,canvas,event) {
     let indexOfClickedTile;
     let mousePosition = getClickedPoint(canvas,event);
-  //  console.log( mousePosition.x + ' and '+ mousePosition.y)
     let x = mousePosition.x;
     let y = mousePosition.y;
     for (let i = 0; i < numberOfElements; i++) {
