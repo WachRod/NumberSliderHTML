@@ -7,8 +7,8 @@ In this app, I use 25 pictures as tile numbers. the player click on a tile for s
 
 Source code files in folder NumberSliderHTML_Ex are another version of this app. This version doesn't need any number pictures.
 It draws the number itself during playing game. 
-Notice: no sound supports in this version.
 
-Hope you have funny time!
+
+Hope you have fun!
 
 
